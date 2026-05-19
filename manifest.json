@@ -1,0 +1,10 @@
+{
+    "name": "Cluedo Assistant",
+    "short_name": "Cluedo",
+    "description": "Assistente per partite di Cluedo",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#003b8f",
+    "orientation": "landscape"
+}
