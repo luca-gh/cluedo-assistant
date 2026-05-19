@@ -133,17 +133,11 @@ th {
 
 /* Titoli sezione: CHI, CHE COSA, DOVE */
 .sectionTitle {
-    background-color: white;
-    color: #003b8f;
+    background-color: #003b8f;
+    color: white;
     font-weight: bold;
     text-transform: uppercase;
     text-align: left;
-    border-top: 4px solid #003b8f;
     padding-left: 8px;
-}
-
-/* Celle vuote delle righe sezione */
-.sectionCell {
-    background-color: white;
-    border-top: 4px solid #003b8f;
+    letter-spacing: 1px;
 }

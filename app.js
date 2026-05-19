@@ -38,25 +38,28 @@ const gameArea = document.getElementById("gameArea");
 // Avvio nuova partita
 newGameButton.addEventListener("click", function() {
     const numberOfPlayers = prompt("Quanti altri giocatori ci sono?");
-    const players = ["Banco", "Luca"];
+    const deductionPlayers = ["Banco", "Luca"];
+    const gamePlayers = ["Luca"];
 
     for(let i = 0; i < numberOfPlayers; i++) {
         const playerName = prompt("Nome del giocatore " + (i + 1));
-        players.push(playerName);
+
+        deductionPlayers.push(playerName);
+        gamePlayers.push(playerName);
     }
 
-    renderTables(players);
+    renderTables(deductionPlayers, gamePlayers);
 });
 
 // Costruisce tutte le tabelle
-function renderTables(players) {
+function renderTables(deductionPlayers, gamePlayers) {
     let html = "";
 
     html += '<div class="tablesContainer">';
 
-    html += buildDeductionTable(players);
-    html += buildQuestionsTable(players);
-    html += buildExclusionsTable(players);
+    html += buildDeductionTable(deductionPlayers);
+    html += buildQuestionsTable(gamePlayers);
+    html += buildExclusionsTable(gamePlayers);
 
     html += "</div>";
 
@@ -175,17 +178,13 @@ function buildHeaderRow(players) {
     return html;
 }
 
-// Costruisce una riga sezione
+// Costruisce una riga sezione senza celle giocatore
 function buildSectionRow(sectionName, players) {
     let html = "";
+    const colspan = players.length + 1;
 
     html += "<tr>";
-    html += '<td class="sectionTitle">' + sectionName + "</td>";
-
-    for(let player of players) {
-        html += '<td class="sectionCell"></td>';
-    }
-
+    html += '<td class="sectionTitle" colspan="' + colspan + '">' + sectionName + "</td>";
     html += "</tr>";
 
     return html;
@@ -231,6 +230,10 @@ function activateCounterCells() {
             let currentValue = Number(counterCell.textContent);
 
             currentValue++;
+
+            if(currentValue > 15) {
+                currentValue = 0;
+            }
 
             counterCell.textContent = currentValue;
         });
