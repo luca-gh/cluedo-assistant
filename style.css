@@ -1,0 +1,149 @@
+/* Stile generale della pagina */
+body {
+    background-color: white;
+    color: #003b8f;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Titolo principale */
+h1 {
+    color: #003b8f;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* Bottone Nuova Partita */
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #003b8f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Area in cui vengono create le tabelle */
+#gameArea {
+    margin-top: 20px;
+}
+
+/* Contenitore delle tre tabelle */
+.tablesContainer {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Singolo blocco tabella */
+.tableBlock {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Titoli delle tabelle */
+h2 {
+    color: #003b8f;
+    margin-bottom: 10px;
+}
+
+/* Tabelle */
+table {
+    border-collapse: collapse;
+    background-color: white;
+    border: 8px solid #003b8f;
+}
+
+/* Celle generali */
+th,
+td {
+    border: 2px solid #003b8f;
+    padding: 4px;
+    height: 28px;
+    text-align: center;
+}
+
+/* Intestazioni */
+th {
+    background-color: #003b8f;
+    color: white;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+/* Prima colonna con i nomi delle carte */
+.cardName {
+    color: #003b8f;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: left;
+    width: 170px;
+    background-color: white;
+    cursor: text;
+    padding-left: 8px;
+}
+
+/* Evidenziazione durante modifica */
+.cardName:focus,
+.editableCell:focus {
+    outline: 3px solid orange;
+    background-color: #fff7d6;
+}
+
+/* Celle colorate della tabella Deduzioni */
+.gameCell {
+    width: 32px;
+    height: 28px;
+    background-color: white;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Hover celle Deduzioni */
+.gameCell:hover {
+    outline: 3px solid #003b8f;
+}
+
+/* Celle contatore della tabella Domande fatte */
+.counterCell {
+    width: 32px;
+    height: 28px;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+    color: #003b8f;
+    padding: 0;
+}
+
+/* Hover celle contatore */
+.counterCell:hover {
+    outline: 3px solid orange;
+}
+
+/* Celle editabili della tabella Esclusioni */
+.editableCell {
+    width: 32px;
+    height: 28px;
+    background-color: white;
+    color: #003b8f;
+    cursor: text;
+    padding: 0;
+}
+
+/* Titoli sezione: CHI, CHE COSA, DOVE */
+.sectionTitle {
+    background-color: white;
+    color: #003b8f;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    border-top: 4px solid #003b8f;
+    padding-left: 8px;
+}
+
+/* Celle vuote delle righe sezione */
+.sectionCell {
+    background-color: white;
+    border-top: 4px solid #003b8f;
+}
