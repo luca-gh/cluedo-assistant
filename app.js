@@ -2,33 +2,34 @@
 const cards = [
     { type: "section", name: "CHI?" },
 
-    { type: "card", name: "Miss Scarlet" },
-    { type: "card", name: "Contessa Peacock" },
-    { type: "card", name: "Professor Plum" },
+    { type: "card", name: "Reverendo Green" },
     { type: "card", name: "Colonnello Mustard" },
     { type: "card", name: "Dottoressa Orchid" },
-    { type: "card", name: "Reverendo Green" },
-
+    { type: "card", name: "Contessa Peacock" },
+    { type: "card", name: "Professor Plum" },
+    { type: "card", name: "Miss Scarlett" },
+    
     { type: "section", name: "CHE COSA?" },
 
     { type: "card", name: "Candeliere" },
     { type: "card", name: "Pugnale" },
     { type: "card", name: "Tubo di piombo" },
-    { type: "card", name: "Rivoltella" },
+    { type: "card", name: "Pistola" },
     { type: "card", name: "Corda" },
     { type: "card", name: "Chiave inglese" },
 
     { type: "section", name: "DOVE?" },
 
-    { type: "card", name: "Cucina" },
     { type: "card", name: "Sala da ballo" },
-    { type: "card", name: "Veranda" },
+    { type: "card", name: "Sala del biliardo" },
+    { type: "card", name: "Serra" },
     { type: "card", name: "Sala da pranzo" },
-    { type: "card", name: "Salotto" },
-    { type: "card", name: "Ingresso" },
-    { type: "card", name: "Studio" },
+    { type: "card", name: "Bagno" },
+    { type: "card", name: "Cucina" },
     { type: "card", name: "Biblioteca" },
-    { type: "card", name: "Biliardo" }
+    { type: "card", name: "Salotto" },
+    { type: "card", name: "Studio" }
+   
 ];
 
 // Troviamo gli elementi principali della pagina
@@ -37,9 +38,15 @@ const gameArea = document.getElementById("gameArea");
 
 // Avvio nuova partita
 newGameButton.addEventListener("click", function() {
+    // Chiediamo il nome del giocatore principale
+    const myName = prompt("Come ti chiami?");
+
+    // Chiediamo il numero degli altri giocatori
     const numberOfPlayers = prompt("Quanti altri giocatori ci sono?");
-    const deductionPlayers = ["Banco", "Luca"];
-    const gamePlayers = ["Luca"];
+
+    // Liste giocatori
+    const deductionPlayers = ["Banco", myName];
+    const gamePlayers = [myName];
 
     for(let i = 0; i < numberOfPlayers; i++) {
         const playerName = prompt("Nome del giocatore " + (i + 1));
@@ -53,6 +60,11 @@ newGameButton.addEventListener("click", function() {
 
 // Costruisce tutte le tabelle
 function renderTables(deductionPlayers, gamePlayers) {
+    const longestNameLength = Math.max(...deductionPlayers.map(player => player.length));
+    const columnWidth = Math.max(44, longestNameLength * 10);
+
+    gameArea.style.setProperty("--player-column-width", columnWidth + "px");
+
     let html = "";
 
     html += '<div class="tablesContainer">';
